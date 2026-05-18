@@ -1,13 +1,20 @@
 const axios = require('axios');
+require('dotenv').config();
 
 async function testApi() {
+    const rapidApiKey = process.env.RAPIDAPI_EBAY_KEY;
+
+    if (!rapidApiKey) {
+        throw new Error('Missing RAPIDAPI_EBAY_KEY in .env');
+    }
+
     const options = {
         method: 'GET',
         url: 'https://real-time-ebay-data.p.rapidapi.com/search',
         params: { q: 'iphone', page: '1' },
         headers: {
             'x-rapidapi-host': 'real-time-ebay-data.p.rapidapi.com',
-            'x-rapidapi-key': 'f64fbbf60cmsh75f939abe507b26p1a6ee6jsnaa33ea3b1905'
+            'x-rapidapi-key': rapidApiKey
         }
     };
 
