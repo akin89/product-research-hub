@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Private Consulting — Okyanusi</title>
+<meta name="description" content="Book a private 1-hour consulting session with Okyanusi. £999 per session." />
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-soft: #111830;
+    --card: #151d38;
+    --line: rgba(255, 255, 255, 0.08);
+    --text: #eef1f8;
+    --muted: #9aa3b8;
+    --gold: #d4af6a;
+    --gold-bright: #e8c886;
+    --accent: #4f7cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: radial-gradient(1200px 600px at 70% -10%, #1a2650 0%, var(--bg) 55%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .brand-mark {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #8a6a35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700; color: #0b1020;
+    font-family: Arial, sans-serif;
+  }
+  .brand-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(32px, 6vw, 46px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 56ch;
+    margin-bottom: 48px;
+  }
+  .card {
+    background: linear-gradient(180deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .price {
+    font-size: 56px;
+    color: var(--gold-bright);
+    letter-spacing: 1px;
+  }
+  .per {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .duration {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .includes {
+    list-style: none;
+    margin: 0 0 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .includes li {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    color: var(--text);
+    font-size: 16px;
+  }
+  .includes li::before {
+    content: "—";
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0b1020;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    padding: 18px 24px;
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(212, 175, 106, 0.25);
+  }
+  .cta-note {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+  }
+  .how {
+    margin-top: 48px;
+  }
+  .how h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gold-bright);
+    margin-bottom: 16px;
+  }
+  .steps {
+    list-style: none;
+    counter-reset: step;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .steps li::before {
+    content: counter(step);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .policies {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 32px 24px;
+  }
+  .policies h3 {
+    font-size: 16px;
+    color: var(--text);
+    margin: 20px 0 6px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+  }
+  .policies p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .policies p strong { color: var(--gold-bright); font-weight: 700; }
+  .policy-intro {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer a { color: var(--gold-bright); text-decoration: none; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div class="brand-name">Okyanusi</div>
+    </div>
+
+    <p class="eyebrow">Private Consulting</p>
+    <h1>One hour. Full focus on your business.</h1>
+    <p class="lede">
+      A private one-to-one consulting session with Okyanusi — dedicated entirely to your
+      questions, your account setup and the technical side of your business. Come with
+      your toughest problems; leave with a clear plan.
+    </p>
+
+    <div class="card">
+      <div class="price-row">
+        <span class="price">£999</span>
+        <span class="per">per session</span>
+      </div>
+      <div class="duration">60 minutes · one-to-one · online (Skype, Zoom or Google&nbsp;Meet)</div>
+
+      <ul class="includes">
+        <li>60-minute private video session, fully focused on your business</li>
+        <li>Hands-on help with account setup during the session</li>
+        <li>Technical guidance — we assist with the technical side to the best of our ability</li>
+        <li>For account closures / suspensions: guidance on what to write in your appeal emails and where to send them</li>
+        <li>Direct, actionable recommendations — no fluff</li>
+      </ul>
+      <p class="cta-note" style="text-align:left; margin: -16px 0 28px;">
+        <strong>This is a single one-hour session.</strong> For ongoing or continued
+        support, a new appointment must be booked for each session. Please read the
+        Service Scope &amp; Policies below before booking.
+      </p>
+
+      <!--
+        PAYMENT LINK — Stripe Payment Link (£999 GBP, one-off).
+        The same link can be pasted directly into a Skype chat —
+        the client can pay from there with one tap.
+      -->
+      <a class="cta" href="https://buy.stripe.com/cNidRa7tE8Hweow5Gl4sE0q">
+        Reserve Your Session — Pay £999
+      </a>
+      <p class="cta-note">
+        Secure card payment via Stripe. After payment, we contact you by email
+        within a few hours to schedule your session.
+        <br /><strong>All payments are final — no refunds.</strong> By paying,
+        you confirm you have read and accepted the Service Scope &amp; Policies below.
+      </p>
+    </div>
+
+    <div class="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Complete your £999 payment using the button above (or via the same payment link if we sent it to you on Skype).</li>
+        <li>We email you within a few hours to schedule a time that suits you and collect any materials you'd like reviewed.</li>
+        <li>We meet online for your 60-minute session — Skype, Zoom or Google Meet, your choice.</li>
+        <li>Need more help afterwards? Simply book a new session — each appointment covers one hour.</li>
+      </ol>
+    </div>
+
+    <div class="how policies" id="policies">
+      <h2>Service Scope &amp; Policies</h2>
+      <p class="policy-intro">
+        To keep everything transparent and professional, please read the following
+        carefully before booking. By completing your payment you confirm that you
+        have read, understood and accepted these terms.
+      </p>
+
+      <h3>1. One-hour, single-session service</h3>
+      <p>
+        Your booking covers <strong>one private session of 60 minutes only</strong>.
+        This is not an ongoing support package, retainer or subscription. If you need
+        continued or follow-up support, a <strong>new appointment must be booked</strong>
+        for each additional session.
+      </p>
+
+      <h3>2. What we do</h3>
+      <p>
+        During your session we assist with <strong>account setup</strong> and the
+        <strong>technical side</strong> of your seller account, to the best of our
+        ability. For account closures, suspensions or similar processes, we provide
+        <strong>guidance only</strong>: we advise you on what to write in your appeal
+        emails and where to send them.
+      </p>
+
+      <h3>3. No guarantees of any kind</h3>
+      <p>
+        We want to be completely clear: <strong>we do not guarantee any outcome or
+        result whatsoever</strong>. We do not promise account reinstatement, account
+        approval, sales results or any other specific outcome. All final decisions
+        regarding your account rest <strong>solely with the relevant platform</strong>
+        (e.g. Amazon, eBay) — never with us. Our role is limited to technical
+        assistance and guidance.
+      </p>
+
+      <h3>4. No refunds — all sales final</h3>
+      <p>
+        Because the session is a professional time-based service and final decisions
+        always rest with the platform, <strong>all payments are final and
+        non-refundable</strong> once the booking is made. Please book your appointment
+        only if you understand and accept this policy.
+      </p>
+    </div>
+
+    <footer>
+      <span>© 2026 Okyanusi Ltd</span>
+      <span>Questions? <a href="mailto:okyanusiltd@gmail.com">okyanusiltd@gmail.com</a></span>
+    </footer>
+  </div>
+</body>
+</html>
